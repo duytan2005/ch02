@@ -1,4 +1,4 @@
-FROM tomcat:9.0.10-jdk17
+FROM tomcat:9.0.108-jdk17
 
 # Xóa webapps mặc định
 RUN rm -rf /usr/local/tomcat/webapps/*
