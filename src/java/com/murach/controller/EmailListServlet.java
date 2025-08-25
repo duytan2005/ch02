@@ -16,19 +16,23 @@ public class EmailListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        // Đảm bảo UTF-8 cho cả request và response
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         String action = request.getParameter("action");
         if (action == null) {
             action = "join"; // action mặc định
         }
-        
+
         String url = "/index.html";
-        
+
         if (action.equals("join")) {
             url = "/index.html"; // Hiển thị form đăng ký
         }
-        
-        // Forward đến trang view
+
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
@@ -37,32 +41,38 @@ public class EmailListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        // Đảm bảo UTF-8 cho cả request và response
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         String action = request.getParameter("action");
         if (action == null) {
             action = "join";
         }
-        
+
         String url = "/index.html";
-        
+
         if (action.equals("add")) {
-            // Lấy dữ liệu từ form
+            // Lấy dữ liệu từ form (UTF-8 an toàn)
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");
-            
+
             // Tạo User object
             User user = new User();
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setEmail(email);
-            
+
             // Validate dữ liệu
             String message = "";
             if (firstName == null || firstName.isEmpty() ||
                 lastName == null || lastName.isEmpty() ||
                 email == null || email.isEmpty()) {
-                message = "Please fill out all fields.";
+                
+                message = "Vui lòng nhập đầy đủ thông tin."; // tiếng Việt OK
                 url = "/index.html";
             } else {
                 // Lưu user vào database
@@ -72,17 +82,15 @@ public class EmailListServlet extends HttpServlet {
                     request.setAttribute("user", user);
                     url = "/thanks.jsp";
                 } else {
-                    // Thất bại
-                    message = "An error occurred. Please try again.";
+                    message = "Có lỗi xảy ra. Vui lòng thử lại.";
                     url = "/index.html";
                 }
             }
-            
+
             request.setAttribute("user", user);
             request.setAttribute("message", message);
         }
-        
-        // Forward đến view
+
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
