@@ -1,0 +1,18 @@
+Email: a@gmail.com
+First Name: aa
+Last Name: bbb
+Date of Birth: 2025-08-02
+Heard About Us: Other
+Wants Offers: yes
+Email Announcements: yes
+Contact Method: emailOrMail
+-------------------------------
+Email: duytan12032021@gmail.com
+First Name: bb
+Last Name: cc
+Date of Birth: 2023-02-01
+Heard About Us: Social Media
+Wants Offers: yes
+Email Announcements: yes
+Contact Method: emailOrMail
+-------------------------------

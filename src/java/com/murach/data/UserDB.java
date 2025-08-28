@@ -8,13 +8,9 @@ public class UserDB {
     
     // Phương thức để thêm user vào file (hoặc database)
     public static int insert(User user) {
-        // Trong thực tế, bạn sẽ lưu vào database
-        // Ở đây chúng ta chỉ mô phỏng việc lưu trữ
-        
         try {
-            // Có thể lưu vào file text hoặc database
-            // Ví dụ lưu vào file
-            String filePath = "C:/temp/users.txt"; // Thay đổi đường dẫn phù hợp
+            // Đường dẫn file (chỉnh cho phù hợp với môi trường của bạn)
+            String filePath = "D:/java/bai2/users.txt";
             
             File file = new File(filePath);
             if (!file.getParentFile().exists()) {
@@ -23,12 +19,18 @@ public class UserDB {
             
             FileWriter fw = new FileWriter(file, true);
             PrintWriter pw = new PrintWriter(fw);
-            
+
+            // Ghi đầy đủ thông tin user
             pw.println("Email: " + user.getEmail());
             pw.println("First Name: " + user.getFirstName());
             pw.println("Last Name: " + user.getLastName());
-            pw.println("------------------------");
-            
+            pw.println("Date of Birth: " + user.getDob());
+            pw.println("Heard About Us: " + user.getSource());
+            pw.println("Wants Offers: " + user.getOffers());
+            pw.println("Email Announcements: " + user.getEmailAnnouncements());
+            pw.println("Contact Method: " + user.getContactMethod());
+            pw.println("-------------------------------");
+
             pw.close();
             fw.close();
             
@@ -46,10 +48,10 @@ public class UserDB {
         return false;
     }
     
-    // Phương thức để lấy tất cả users (nếu cần)
+    // Phương thức để lấy tất cả users (demo)
     public static List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        // Implement logic to read from database/file
+        // Nếu muốn, bạn có thể đọc từ file users.txt để build lại danh sách User
         return users;
     }
 }

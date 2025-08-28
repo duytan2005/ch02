@@ -8,43 +8,57 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
         }
         .container {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: left;
         }
         h1 {
-            color: #2c5aa0;
+            text-align: center;
             margin-bottom: 20px;
+            font-size: 22px;
+            color: #333;
+        }
+        p {
+            margin: 8px 0;
+            color: #555;
         }
         .info {
             background-color: #f9f9f9;
             padding: 15px;
-            border-radius: 3px;
+            border-radius: 8px;
             margin: 20px 0;
+            box-shadow: inset 0px 2px 5px rgba(0,0,0,0.05);
         }
         .info p {
             margin: 5px 0;
+            font-size: 14px;
         }
         .return-button {
-            background-color: #2c5aa0;
-            color: white;
-            padding: 10px 20px;
+            width: 100%;
+            padding: 12px;
             border: none;
-            border-radius: 3px;
+            background: #6a5acd;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
+            transition: background 0.3s;
         }
         .return-button:hover {
-            background-color: #1e3f73;
+            background: #5b4acb;
         }
     </style>
 </head>
@@ -58,6 +72,21 @@
             <p><strong>Email:</strong> ${user.email}</p>
             <p><strong>First Name:</strong> ${user.firstName}</p>
             <p><strong>Last Name:</strong> ${user.lastName}</p>
+            <p><strong>Date of Birth:</strong> ${user.dob}</p>
+            <p><strong>Heard About Us:</strong> ${user.source}</p>
+            <p><strong>Wants Offers:</strong> 
+                <c:choose>
+                    <c:when test="${user.offers eq 'yes'}">Yes</c:when>
+                    <c:otherwise>No</c:otherwise>
+                </c:choose>
+            </p>
+            <p><strong>Email Announcements:</strong> 
+                <c:choose>
+                    <c:when test="${user.emailAnnouncements eq 'yes'}">Yes</c:when>
+                    <c:otherwise>No</c:otherwise>
+                </c:choose>
+            </p>
+            <p><strong>Preferred Contact Method:</strong> ${user.contactMethod}</p>
         </div>
         
         <p>To enter another email address, click on the Back button in your browser or the Return button shown below.</p>
