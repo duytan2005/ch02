@@ -16,3 +16,21 @@ Wants Offers: yes
 Email Announcements: yes
 Contact Method: emailOrMail
 -------------------------------
+Email: nguyenduytan20050506@gmail.com
+First Name: Nguyễn
+Last Name: Tân
+Date of Birth: 2025-08-12
+Heard About Us: Search engine
+Wants Offers: no
+Email Announcements: yes
+Contact Method: emailOnly
+-------------------------------
+Email: a@gmail.com
+First Name: aa
+Last Name: dd
+Date of Birth: 2025-08-08
+Heard About Us: Social Media
+Wants Offers: yes
+Email Announcements: yes
+Contact Method: emailOrMail
+-------------------------------
